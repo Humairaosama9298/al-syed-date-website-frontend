@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="relative z-10 text-white px-4">
         {/* Heading */}
         <motion.h1
-          className="text-4xl md:text-5xl font-serif font-medium drop-shadow-lg leading-snug mb-6"
+          className="text-4xl md:text-5xl font-serif font-medium drop-shadow-lg md:px-48 mb-10"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >

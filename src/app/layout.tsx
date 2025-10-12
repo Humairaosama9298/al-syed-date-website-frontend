@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} antialiased bg-bg `}
       >
           <Navbar/>
-        <main className="min-h-screen py-4">
+        <main className="min-h-screen py-4 ">
         {children}
         <Footer/>
         </main>

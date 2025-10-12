@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/utils/animations';
 import { FaGlobe, FaShippingFast, FaCheckCircle, FaUserTie, FaSmile } from 'react-icons/fa';
 
-export default function Expertise() {
+export default function Experties() {
   const stats = [
     { icon: <FaGlobe className="text-primary text-4xl mb-3" />, value: '15+', label: 'Countries Exported' },
     { icon: <FaShippingFast className="text-primary text-4xl mb-3" />, value: '500+', label: 'Tons Exported' },

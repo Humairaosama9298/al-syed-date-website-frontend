@@ -32,7 +32,7 @@ export default function Varieties() {
   ]
 
   return (
-    <section className="relative py-20 bg-[#fdfbf7] text-center">
+    <section className="relative  text-center">
       {/* Heading */}
       <motion.h1
         className="text-4xl md:text-5xl font-playfair font-bold text-primary mb-4"
@@ -43,7 +43,7 @@ export default function Varieties() {
       </motion.h1>
 
       <motion.p
-        className="text-[var(--color-text)] text-lg md:text-xl mb-16 font-inter max-w-3xl mx-auto"
+        className="text-text text-lg px-4 md:text-xl mb-16 font-inter max-w-3xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -54,7 +54,7 @@ export default function Varieties() {
 
       {/* Variety Grid */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-6"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-7xl mx-auto px-6"
         initial="hidden"
         animate="visible"
         variants={{

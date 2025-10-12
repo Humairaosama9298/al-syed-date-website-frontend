@@ -1,12 +1,13 @@
+"use client";
 import About from "./about/page";
 import Benefits from "./benefits/page";
 import Hero from "./components/Hero";
 import Contact from "./contact/page";
-import Expertise from "./experties/page";
 import Products from "./products/page";
 import Varieties from "./varieties/page";
 import Map from "./components/Map";
 import FromFarm from "./components/FromFarm";
+import Experties from "./experties/page";
 
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
       <Products/>
       <FromFarm/>
       <Map/>
-      <Expertise/>
+      <Experties/>
       <Contact/>
     </main>
   );
