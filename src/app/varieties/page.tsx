@@ -9,25 +9,25 @@ export default function Varieties() {
       name: 'Aseel Dates',
       desc: 'Rich in flavor and naturally sweet — perfect for export worldwide.',
       image:
-        'https://images.unsplash.com/photo-1600628421055-9d220b26df39?auto=format&fit=crop&w=600&q=80',
+        "/images/aseel-date.png",
     },
     {
       name: 'Rabbi Dates',
       desc: 'Soft texture with balanced sweetness — a popular choice in global markets.',
       image:
-        'https://images.unsplash.com/photo-1587731445319-6e8b1e1e0f93?auto=format&fit=crop&w=600&q=80',
+        "/images/begum.png",
     },
     {
       name: 'Khudri Dates',
       desc: 'Dark brown dates known for their chewy texture and deep caramel taste.',
       image:
-        'https://images.unsplash.com/photo-1625516157423-176fcee97ee9?auto=format&fit=crop&w=600&q=80',
+        "/images/khudri.jpg",
     },
     {
       name: 'Mazafati Dates',
       desc: 'Soft, juicy, and full of energy — the king of dates for everyday use.',
       image:
-        'https://images.unsplash.com/photo-1612197512811-0c3f1a362b68?auto=format&fit=crop&w=600&q=80',
+       "/images/full date.png",
     },
   ]
 
@@ -74,8 +74,8 @@ export default function Varieties() {
             <Image
               src={item.image}
               alt={item.name}
-              height={100}
-              width={100}
+              height={200}
+              width={200}
               className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"></Image>
             
             <div className="p-6">

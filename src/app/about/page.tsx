@@ -14,7 +14,7 @@ import {
 
 export default function About() {
   return (
-    <div className="container max-w-7xl mx-auto py-16 px-4">
+    <div className="container max-w-7xl mx-auto py-20 md:py-32 ">
       {/* ===== Page Heading ===== */}
       <motion.h1
         className="text-4xl font- mb-10 text-center"
@@ -24,18 +24,18 @@ export default function About() {
       </motion.h1>
 
       {/* ===== Company Overview ===== */}
-      <motion.section className="mb-16 text-center space-y-8" {...fadeInUp}>
-        <p className="md:text-lg text-dark/80 max-w-3xl mx-auto leading-relaxed">
+      <motion.section className="mb-16 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left" {...fadeInUp}>
+        <p className="md:text-lg text-dark/80 md:p-4 max-w-3xl mx-auto leading-relaxed">
           Al-Syed Brothers is a leading exporter of <strong>premium quality dates</strong> from the heart of Pakistan’s finest date-producing regions.
           With decades of experience in cultivation, processing, and international trade, our mission is to bring
           the natural sweetness and nutritional value of our dates to customers across the world.
         </p>
         <Image 
-        className="h-full w-full rounded-lg py-"
+        className=" w-full rounded-lg"
         src="/images/herosection.png"
         alt="about-image"
-        width={200}
-        height={200}
+        width={300}
+        height={300}
         >
         </Image>
       </motion.section>
@@ -110,12 +110,7 @@ export default function About() {
         {...fadeIn}
         transition={{ delay: 0.4 }}
       >
-        <motion.h2
-          className="text-3xl font-bold text-center mb-10 text-brown-700"
-          {...fadeInUp}
-        >
-          Our Heritage
-        </motion.h2>
+
 
         <motion.div
           className="max-w-4xl mx-auto space-y-8"
@@ -124,11 +119,11 @@ export default function About() {
           animate="animate"
         >
           <motion.div
-            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+            className="bg-white p-8 text-center rounded-2xl shadow-lg border border-gray-100"
             variants={fadeInUp}
             {...cardHoverSmall}
           >
-            <h3 className="text-xl font-semibold mb-2 text-brown-800">
+            <h3 className="text-xl text-dark font-semibold mb-2 text-brown-800">
               Decades of Excellence
             </h3>
             <p className="text-gray-600 leading-relaxed">
@@ -138,7 +133,7 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+            className="bg-white p-8 text-dark text-center rounded-2xl shadow-lg border border-gray-100"
             variants={fadeInUp}
             {...cardHoverSmall}
           >
@@ -148,49 +143,6 @@ export default function About() {
             <p className="text-gray-600 leading-relaxed">
               Sustainability lies at the heart of our operations. We ensure eco-friendly farming,
               fair trade practices, and continuous support for local farming communities.
-            </p>
-          </motion.div>
-        </motion.div>
-      </motion.section>
-
-      {/* ===== Certification / Quality Section ===== */}
-      <motion.section {...fadeIn} transition={{ delay: 0.6 }}>
-        <motion.h2
-          className="text-3xl font-bold text-center mb-10 text-brown-700"
-          {...fadeInUp}
-        >
-          Certifications & Standards
-        </motion.h2>
-
-        <motion.div
-          className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.div
-            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <h3 className="text-xl font-semibold mb-2 text-brown-800">
-              ISO & HACCP Certified
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Our processing and packaging facilities are ISO and HACCP certified to meet the highest international safety and quality standards.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <h3 className="text-xl font-semibold mb-2 text-brown-800">
-              Organic & Export-Grade Quality
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Each batch is carefully selected, processed, and packaged to preserve its natural flavor, texture, and freshness.
             </p>
           </motion.div>
         </motion.div>

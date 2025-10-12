@@ -13,7 +13,7 @@ export default function DatesBenefits() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0  backdrop-blur-[2px] bg-light"></div>
+      <div className="absolute inset-0 bg-light"></div>
 
       <div className="relative container mx-auto px-6 z-10 text-center text-white">
         {/* Heading */}
@@ -26,7 +26,7 @@ export default function DatesBenefits() {
         </motion.h1>
 
         <motion.p
-          className="text-white/90 text-lg md:text-xl mb-16 font-inter max-w-3xl mx-auto drop-shadow-sm"
+          className="text-white/90 text-lg md:text-xl mb-16 max-w-3xl mx-auto drop-shadow-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}

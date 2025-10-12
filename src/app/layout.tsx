@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -32,13 +31,11 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${inter.variable} antialiased bg-bg `}
       >
-        <ThemeProvider>
           <Navbar/>
-        <main className="min-h-screen">
+        <main className="min-h-screen py-4">
         {children}
         <Footer/>
         </main>
-        </ThemeProvider>
       </body>
     </html>
   );
