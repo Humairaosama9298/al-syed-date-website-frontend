@@ -1,104 +1,114 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { FaLeaf, FaDrumstickBite, FaCookieBite, FaSeedling } from 'react-icons/fa'
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  FaLeaf,
+  FaDrumstickBite,
+  FaCookieBite,
+  FaSeedling,
+} from "react-icons/fa";
 
-export default function ProductsPage() {
+export default function Products() {
   const products = [
     {
-      id: '01',
-      title: 'Pakistani Dates',
-      icon: <FaLeaf className="text-4xl text-primary" />,
-      image: '/images/pakistani-date.jpg',
+      id: "01",
+      title: "Pakistani Dates",
+      icon: <FaLeaf className="text-3xl text-primary" />,
+      image: "/images/pakistani-date.jpg",
       features: [
-        'Best quality of Pakistani Dates',
-        'Sweet, healthy & ready to serve',
+        "Best quality of Pakistani Dates",
+        "Sweet, healthy & ready to serve",
       ],
     },
     {
-      id: '02',
-      title: 'Pakistani Fried Onion',
-      icon: <FaDrumstickBite className="text-4xl text-primary" />,
-      image: '/images/fried-onion.jpg',
-      features: ['Premium Quality Fried Onion', 'Best Ingredients Used'],
+      id: "02",
+      title: "Pakistani Fried Onion",
+      icon: <FaDrumstickBite className="text-3xl text-primary" />,
+      image: "/images/fried-onion.jpg",
+      features: ["Premium Quality Fried Onion", "Best Ingredients Used"],
     },
     {
-      id: '03',
-      title: 'Roasted Black Chickpeas',
-      icon: <FaCookieBite className="text-4xl text-primary" />,
-      image: '/images/chickpea1.jpg',
-      features: ['Nutrient-rich and low in calories', 'Supports bone strength'],
+      id: "03",
+      title: "Roasted Black Chickpeas",
+      icon: <FaCookieBite className="text-3xl text-primary" />,
+      image: "/images/chickpea1.jpg",
+      features: [
+        "Nutrient-rich and low in calories",
+        "Supports bone strength",
+      ],
     },
     {
-      id: '04',
-      title: 'Dry Vegetable',
-      icon: <FaSeedling className="text-4xl text-primary" />,
-      image: '/images/vagetables.jpg',
-      features: ['Professionally dried', 'Extended shelf life'],
+      id: "04",
+      title: "Dry Vegetable",
+      icon: <FaSeedling className="text-3xl text-primary" />,
+      image: "/images/vagetables.jpg",
+      features: ["Professionally dried", "Extended shelf life"],
     },
-  ]
+  ];
 
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat py-20"
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-bg " />
-
-      <div className="relative z-10 container mx-auto px-6 text-center text-primary">
-        <motion.h1
-          className="text-4xl md:text-5xl font-serif mb-4 drop-shadow-md"
+    <section className="bg-secondary/30 py-20 px-6 lg:px-16">
+      <div className="max-w-7xl mx-auto text-center">
+        {/* ====== Section Heading ====== */}
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
+          className="text-4xl lg:text-5xl font-playfair text-primary mb-6"
         >
           Our Premium Products
-        </motion.h1>
+        </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl mb-16 font-inter max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
+          className="text-dark/70 text-lg max-w-2xl mx-auto mb-16"
         >
-          From Pakistan’s farms to your tables — delivering nature’s richness with quality and care.
+          From Pakistan’s fertile farms to your tables — bringing nature’s
+          richness, freshness, and purity with unmatched care.
         </motion.p>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        {/* ====== Product Cards Grid ====== */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
           {products.map((product, index) => (
             <motion.div
               key={index}
-              className="flex flex-col md:flex-row items-center gap-6 bg-white/95 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all text-left"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
+              className="group bg-white/90 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-all overflow-hidden text-left backdrop-blur-sm"
             >
               {/* Product Image */}
-              <div className="w-full md:w-1/3">
+              <div className="relative w-full h-56 md:h-48 overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.title}
-                  width={300}
-                  height={200}
-                  className="rounded-lg object-cover w-full h-48 md:h-40"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Product Content */}
-              <div className="flex-1">
+              <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="text-2xl font-bold text-primary">{product.id}</div>
-                  {product.icon}
+                  <div className="text-xl font-semibold text-secondary">
+                    {product.id}
+                  </div>
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
+                    {product.icon}
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-playfair font-semibold text-primary mb-2">
+                <h3 className="text-2xl font-playfair font-semibold text-primary mb-3">
                   {product.title}
                 </h3>
 
-                <ul className="text-dark/80 space-y-1 font-inter">
+                <ul className="text-dark/80 space-y-1 font-inter leading-relaxed">
                   {product.features.map((feature, i) => (
-                    <li key={i}>➢ {feature}</li>
+                    <li key={i} className="flex items-start">
+                      <span className="text-primary mr-2">➤</span> {feature}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -107,5 +117,5 @@ export default function ProductsPage() {
         </div>
       </div>
     </section>
-  )
+  );
 }

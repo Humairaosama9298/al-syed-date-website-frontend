@@ -15,9 +15,9 @@ export default function Home() {
     <main>
       <Hero/>
       <About/>
+      <Products/>
       <Varieties/>
       <Benefits/>
-      <Products/>
       <FromFarm/>
       <Map/>
       <Experties/>

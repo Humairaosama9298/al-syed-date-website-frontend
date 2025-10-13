@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import {
-  fadeInUp,
-  fadeIn,
-  slideInLeft,
-  slideInRight,
-} from "@/utils/animations";
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
 
 interface FormData {
   name: string;
@@ -24,11 +25,20 @@ export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    message: "",
     country: "",
+    message: "",
   });
+
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  // ✅ Handle input changes
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  // ✅ Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
@@ -36,261 +46,234 @@ export default function Contact() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) throw new Error("Failed to send message");
 
       setStatus("success");
-      setFormData({ name: "", email: "", message: "" , country: ""});
+      setFormData({ name: "", email: "", country: "", message: "" });
     } catch {
       setStatus("error");
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
   return (
-    <div className="container bg-bg max-w-7xl mx-auto py-12">
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Contact Information */}
-        <motion.div className="space-y-10" {...slideInLeft}>
-          <motion.div {...fadeInUp}>
-            <h2 className="text-3xl font-normal mb-4 text-center font-serif text-primary">
-              Get in Touch
-            </h2>
-            <p className="text-dark/70 text-center">
-              Ready to experience the finest Pakistani dates? Contact us for
-              export inquiries and partnerships.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="space-y-4"
-            variants={fadeIn}
-            initial="initial"
-            animate="animate"
-          >
-            <div className="text-xl mb-6 text-primary">
-              <h2>Contact Information</h2>
-            </div>
-            <motion.div
-              className="flex items-center gap-4"
-              variants={fadeInUp}
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FaEnvelope className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="text-dark">Email</h3>
-                <a
-                  href="mailto:your.email@example.com"
-                  className="text-primary hover:text-secondary"
-                >
-                  your.email@example.com
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="flex items-center gap-4"
-              variants={fadeInUp}
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FaPhone className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="text-dark">Phone</h3>
-                <a
-                  href="tel:+1234567890"
-                  className="text-primary hover:text-secondary"
-                >
-                  +1 (234) 567-890
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="flex items-center gap-4"
-              variants={fadeInUp}
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FaMapMarkerAlt className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="text-dark">Location</h3>
-                <p className="text-primary hover:text-primary">
-                  Karachi Sindh, Pakistan.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-          <div className="text-xl mb-6 text-primary space-y-6">
-            <h2>Visit Our Website</h2>
-            <a
-              className="text-bg text-[1rem] inline-block bg-primary px-6 py-3 rounded-lg hover:bg-primary/90"
-              href="www.alsyedbrother.com"
-            >
-              www.alsyedbrother.com
-            </a>
-          </div>
-          <div className="text-xl space-y-8 text-primary">
-            <h2>Follow Us</h2>
-            <div className="flex text-dark space-x-6">
-              <a
-                href="https://github.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-              >
-                <FaGithub className="h-6 w-6" />
-              </a>
-              <a
-                href="https://twitter.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-              >
-                <FaTwitter className="h-6 w-6" />
-              </a>
-              <a
-                href="https://linkedin.com/in/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-              >
-                <FaLinkedin className="h-6 w-6" />
-              </a>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Contact Form */}
+    <section className="bg-bg py-20 px-6 lg:px-16">
+      <div className="max-w-7xl mx-auto">
+        {/* ===== Heading ===== */}
         <motion.div
-          className="bg-white rounded-2xl p-8 shadow-2xl shadow-amber-950 "
-          {...slideInRight}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
         >
-          <motion.form
-            onSubmit={handleSubmit}
-            className="space-y-6"
-            variants={fadeIn}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.div variants={fadeInUp}>
-              <label htmlFor="name" className="block text-dark/90 text-sm font-medium mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 rounded-md  dark:border-gray-700 bg-secondary/20 dark:bg-dark focus:ring-2 outline-none focus:ring-secondary/80 focus:border-transparent"
-              />
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <label htmlFor="email" className="block text-dark/90 text-sm font-medium mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your@email.com"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 rounded-md  dark:border-gray-700 bg-secondary/20 dark:text-white dark:bg-dark focus:ring-2 outline-none focus:ring-secondary/80 focus:border-transparent"
-              />
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-  <label
-    htmlFor="country"
-    className="block text-dark/90 text-sm font-medium mb-2"
-  >
-    Country
-  </label>
-  <input
-    type="text"
-    id="country"
-    name="country"
-    placeholder="Your country"
-    value={formData.country}
-    onChange={handleChange}
-    required
-    className="w-full px-4 py-2 rounded-md dark:border-gray-700 bg-secondary/20 dark:text-white dark:bg-dark focus:ring-2 outline-none focus:ring-secondary/80 focus:border-transparent"
-  />
-</motion.div>
-
-
-            <motion.div variants={fadeInUp}>
-              <label
-                htmlFor="message"
-                className="block text-dark/90 text-sm font-medium mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Tell us about your inquiry"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="w-full px-4 py-2 rounded-md  dark:border-gray-700 bg-secondary/20 dark:text-white dark:bg-dark focus:ring-2 outline-none focus:ring-secondary/80 focus:border-transparent"
-              />
-            </motion.div>
-
-            <motion.button
-              type="submit"
-              disabled={status === "loading"}
-              className="w-full btn btn-primary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {status === "loading" ? "Sending..." : "Send Message"}
-            </motion.button>
-
-            {status === "success" && (
-              <motion.p
-                className="text-green-500 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Message sent successfully!
-              </motion.p>
-            )}
-
-            {status === "error" && (
-              <motion.p
-                className="text-red-500 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Failed to send message. Please try again.
-              </motion.p>
-            )}
-          </motion.form>
+          <h2 className="text-4xl lg:text-5xl font-playfair text-primary mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-dark/70 text-lg max-w-2xl mx-auto">
+            Ready to experience the finest Pakistani dates? Contact us for
+            export inquiries, business collaborations, and partnerships.
+          </p>
         </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* ===== LEFT SIDE ===== */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="space-y-10"
+          >
+            {/* 📞 Contact Info */}
+            <div>
+              <h3 className="text-2xl font-playfair text-primary mb-6">
+                Contact Information
+              </h3>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: <FaEnvelope className="text-primary text-xl" />,
+                    title: "Email",
+                    value: "info@alsyedbrothers.com",
+                    link: "mailto:info@alsyedbrothers.com",
+                  },
+                  {
+                    icon: <FaPhone className="text-primary text-xl" />,
+                    title: "Phone",
+                    value: "+92 (300) 261-1865",
+                    link: "tel:+923002611865",
+                  },
+                  {
+                    icon: <FaWhatsapp className="text-primary text-xl" />,
+                    title: "WhatsApp",
+                    value: "+92 (300) 261-1865",
+                    link: "https://wa.me/923002611865",
+                  },
+                  {
+                    icon: <FaMapMarkerAlt className="text-primary text-xl" />,
+                    title: "Location",
+                    value:
+                      "Office No: 203, 2nd Floor, MR 5/121, Mehran Manzil, Zakaria Lane, Jodia Bazar, Karachi.",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ x: 8 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="p-3 rounded-full bg-primary/10 flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-dark">{item.title}</h4>
+                      {item.link ? (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-secondary"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-dark/80">{item.value}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* 🌐 Website */}
+            <div>
+              <h3 className="text-2xl font-playfair text-primary mb-4">
+                Visit Our Website
+              </h3>
+              <a
+                href="https://www.alsyedbrother.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                www.alsyedbrother.com
+              </a>
+            </div>
+
+            {/* 👥 Social Links */}
+            <div>
+              <h3 className="text-2xl font-playfair text-primary mb-4">
+                Follow Us
+              </h3>
+              <div className="flex gap-4">
+                {[
+                  {
+                    icon: <FaGithub />,
+                    link: "https://github.com/yourusername",
+                  },
+                  {
+                    icon: <FaTwitter />,
+                    link: "https://twitter.com/yourusername",
+                  },
+                  {
+                    icon: <FaLinkedin />,
+                    link: "https://linkedin.com/in/yourusername",
+                  },
+                ].map((item, i) => (
+                  <a
+                    key={i}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ===== RIGHT SIDE (Form) ===== */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-2xl shadow-lg p-8"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {[
+                { id: "name", label: "Name", type: "text" },
+                { id: "email", label: "Email", type: "email" },
+                { id: "country", label: "Country", type: "text" },
+              ].map((field) => (
+                <div key={field.id}>
+                  <label
+                    htmlFor={field.id}
+                    className="block text-sm font-medium text-dark/90 mb-2"
+                  >
+                    {field.label}
+                  </label>
+                  <input
+                    type={field.type}
+                    id={field.id}
+                    name={field.id}
+                    required
+                    value={formData[field.id as keyof FormData]}
+                    onChange={handleChange}
+                    placeholder={`Your ${field.label.toLowerCase()}`}
+                    className="w-full px-4 py-2 rounded-md bg-secondary/20 focus:ring-2 focus:ring-secondary/80 outline-none"
+                  />
+                </div>
+              ))}
+
+              {/* Message Field */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-dark/90 mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your inquiry"
+                  className="w-full px-4 py-2 rounded-md bg-secondary/20 focus:ring-2 focus:ring-secondary/80 outline-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                disabled={status === "loading"}
+                className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                {status === "loading" ? "Sending..." : "Send Message"}
+              </motion.button>
+
+              {/* Status Messages */}
+              {status === "success" && (
+                <p className="text-green-600 text-center">
+                  ✅ Message sent successfully!
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-red-600 text-center">
+                  ❌ Failed to send message. Please try again.
+                </p>
+              )}
+            </form>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

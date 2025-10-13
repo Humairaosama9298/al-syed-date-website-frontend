@@ -16,9 +16,53 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+// ✅ Full SEO Metadata
 export const metadata: Metadata = {
-  title: "Premium Date Export",
-  description: "Export the best organic date worldwide",
+  title: {
+    default: "Al Syed Brothers | Premium Pakistani Dates Exporters",
+    template: "%s | Al Syed Brothers",
+  },
+  description:
+    "Al Syed Brothers exports premium Pakistani dates worldwide — including Ajwa, Medjool, and more organic varieties. 100% natural, high-quality, and rich in nutrients.",
+
+  metadataBase: new URL("https://www.alsyedbrother.com"),
+
+  openGraph: {
+    title: "Al Syed Brothers | Premium Pakistani Dates Exporters",
+    description:
+      "Discover the finest quality Pakistani dates — organic, nutritious, and naturally sweet. Exported worldwide from Pakistan.",
+    url: "https://www.alsyedbrother.com",
+    siteName: "Al Syed Brothers",
+    images: [
+      {
+        url: "/images/og-image.jpg", // 👉 add your image in public/images folder
+        width: 1200,
+        height: 630,
+        alt: "Al Syed Brothers – Premium Pakistani Dates Exporters",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -29,13 +73,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased bg-bg `}
+        className={`${playfair.variable} ${inter.variable} antialiased bg-bg`}
       >
-          <Navbar/>
-        <main className="min-h-screen py-4 ">
-        {children}
-        <Footer/>
-        </main>
+        <Navbar />
+        <main className="min-h-screen py-4">{children}</main>
+        <Footer />
       </body>
     </html>
   );
