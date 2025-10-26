@@ -29,13 +29,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* ===== Logo Section ===== */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center justify-center w-12 h-12">
+            <div className="flex items-center justify-center w-8 h-8">
               <Image
-                src="/images/logo.png"
+                src="/images/logo1.png"
                 alt="logo"
-                width={50}
-                height={50}
-                className="object-contain"
+                width={100}
+                height={100}
+                className="object-contain text-primary"
                 priority
               />
             </div>
