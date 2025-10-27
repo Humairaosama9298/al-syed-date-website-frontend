@@ -33,8 +33,8 @@ export default function Navbar() {
               <Image
                 src="/images/logo1.png"
                 alt="logo"
-                width={100}
-                height={100}
+                width={60}
+                height={60}
                 className="object-contain text-primary"
                 priority
               />
