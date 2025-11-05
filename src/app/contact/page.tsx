@@ -152,7 +152,7 @@ export default function Contact() {
                 Visit Our Website
               </h3>
               <a
-                href="https://www.alsyedbrother.com"
+                href="https://www.alsyedbrothers.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"

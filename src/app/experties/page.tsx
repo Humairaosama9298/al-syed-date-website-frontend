@@ -6,11 +6,11 @@ import { FaGlobe, FaShippingFast, FaCheckCircle, FaUserTie, FaSmile } from 'reac
 
 export default function Experties() {
   const stats = [
-    { icon: <FaGlobe className="text-primary text-4xl mb-3" />, value: '15+', label: 'Countries Exported' },
-    { icon: <FaShippingFast className="text-primary text-4xl mb-3" />, value: '500+', label: 'Tons Exported' },
+    { icon: <FaGlobe className="text-primary text-4xl mb-3" />, value: '15+', label: 'Countries In Touch' },
+    { icon: <FaShippingFast className="text-primary text-4xl mb-3" />, value: '500+', label: 'Capability Exported' },
     { icon: <FaCheckCircle className="text-primary text-4xl mb-3" />, value: '100%', label: 'Quality Assured' },
     { icon: <FaUserTie className="text-primary text-4xl mb-3" />, value: '10+', label: 'Years of Experience' },
-    { icon: <FaSmile className="text-primary text-4xl mb-3" />, value: '100+', label: 'Happy Clients' },
+    { icon: <FaSmile className="text-primary text-4xl mb-3" />, value: '100+', label: 'Clients Satisfication' },
   ];
 
   return (

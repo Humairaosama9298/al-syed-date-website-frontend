@@ -48,15 +48,15 @@ export default function Navbar() {
           </div>
 
           {/* ===== Desktop Menu ===== */}
-          <div className="hidden md:flex text-sm lg:text-base items-center space-x-4 lg:space-x-8">
+          <div className="hidden lg:flex text-sm lg:text-base items-center space-x-4 lg:space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`transition-colors ${
                   pathname === item.href
-                    ? "text-primary font-semibold"
-                    : "text-dark hover:text-primary"
+  ? "text-primary font-semibold underline underline-offset-4 decoration-2 decoration-primary"
+  : "text-dark hover:text-primary hover:underline-offset-4"
                 }`}
               >
                 {item.label}
@@ -66,7 +66,7 @@ export default function Navbar() {
 
           {/* ===== Mobile Menu Button ===== */}
           <motion.button
-            className="md:hidden text-primary p-2 rounded-lg hover:text-secondary transition-colors"
+            className="lg:hidden text-primary p-2 rounded-lg hover:text-secondary transition-colors"
             onClick={toggleMobileMenu}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -88,9 +88,9 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ type: "spring", stiffness: 120, damping: 15 }}
-              className="md:hidden bg-white/95 rounded-lg shadow-md mt-2"
+              className="lg:hidden mt-2"
             >
-              <div className="py-4 space-y-4">
+              <div className="p-4 space-y-4">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}

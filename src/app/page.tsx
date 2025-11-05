@@ -1,7 +1,7 @@
 "use client";
 import About from "./about/page";
 import Benefits from "./benefits/page";
-import Hero from "./components/Hero";
+import Hero2 from "./components/Hero2";
 import Contact from "./contact/page";
 import Products from "./products/page";
 import Varieties from "./varieties/page";
@@ -13,7 +13,7 @@ import Experties from "./experties/page";
 export default function Home() {
   return (
     <main>
-      <Hero/>
+      <Hero2/>
       <About/>
       <Products/>
       <Varieties/>

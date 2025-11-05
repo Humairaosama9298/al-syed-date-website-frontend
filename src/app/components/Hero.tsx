@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative h-[85vh] sm:h-[90vh] flex items-center justify-center text-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/hero.jpg')" }}
+      style={{ backgroundImage: "url('/images/hero1.jpg')" }}
     >
       {/* ===== Overlay ===== */}
       <div className="absolute inset-0 bg-black/60"></div>

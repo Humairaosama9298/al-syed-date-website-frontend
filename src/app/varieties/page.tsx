@@ -79,7 +79,7 @@ export default function Varieties(): JSX.Element {
                 src={item.image as string}
                 alt={item.name}
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
+                className="object-cover hover:scale-110 transition-transform duration-1000"
               />
             </div>
 
