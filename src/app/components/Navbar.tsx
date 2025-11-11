@@ -29,7 +29,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* ===== Logo Section ===== */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center justify-center w-8 h-8">
+            <div className="flex items-center justify-center w-10 h-10">
               <Image
                 src="/images/logo1.png"
                 alt="logo"
