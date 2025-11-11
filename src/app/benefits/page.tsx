@@ -6,21 +6,21 @@ import { FaLeaf, FaHeart, FaBrain, FaAppleAlt } from 'react-icons/fa'
 export default function DatesBenefits() {
   return (
     <section
-      className="container bg-secondary/30 max-w-7xl mx-auto py-16 md:py-28 px-4 lg:px-6"
+      className="container bg-black max-w-7xl mx-auto py-16 md:py-28 px-4 lg:px-6"
       aria-labelledby="dates-benefits-heading"
     >
       {/* ===== Heading ===== */}
       <motion.h1
         id="dates-benefits-heading"
-        className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary text-center mb-12 leading-tight"
+        className="text-3xl sm:text-4xl md:text-5xl font-serif text-secondary text-center mb-12 leading-tight"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        Health Benefits of <span className="text-dark font-medium">Dates</span>
+        Health Benefits of <span className="text-secondary font-medium">Dates</span>
       </motion.h1>
 
       <motion.p
-        className="text-dark/70 text-base sm:text-lg md:text-xl text-center max-w-3xl mx-auto mb-20 leading-relaxed"
+        className="text-light/50 text-base sm:text-lg md:text-xl text-center max-w-3xl mx-auto mb-20 leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
