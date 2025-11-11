@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, [images.length])
 
   return (
-    <section className="bg-black/50 relative h-[85vh] sm:h-[90vh] overflow-hidden flex items-center justify-center">
+    <section className="bg-black/90 relative h-[85vh] sm:h-[90vh] overflow-hidden flex items-center justify-center">
       {/* ===== Image Slider Background ===== */}
       <div className="absolute inset-0">
         <AnimatePresence mode="popLayout">
@@ -86,14 +86,14 @@ export default function HeroSection() {
         >
           <Link
             href="/products"
-            className="bg-primary text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-md hover:bg-secondary transition-all duration-300 text-base sm:text-lg"
+            className="bg-secondary text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-md hover:bg-secondary transition-all duration-300 text-base sm:text-lg"
           >
             Explore Varieties
           </Link>
 
           <Link
             href="/contact"
-            className="border border-white/70 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-md hover:bg-white hover:text-primary transition-all duration-300 backdrop-blur-sm text-base sm:text-lg"
+            className="border border-secondary/70 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-md hover:bg-white hover:text-primary transition-all duration-300 backdrop-blur-sm text-base sm:text-lg"
           >
             Contact for Export
           </Link>

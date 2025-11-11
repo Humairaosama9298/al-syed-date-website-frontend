@@ -48,13 +48,13 @@ export default function Products() {
   ];
 
   return (
-    <section className="bg-secondary/30 py-20 px-6 lg:px-16">
+    <section className="bg-black/30 py-20 px-6 lg:px-16">
       <div className="max-w-7xl mx-auto text-center">
         {/* ====== Section Heading ====== */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl lg:text-5xl font-playfair text-primary mb-6"
+          className="text-4xl lg:text-5xl font-playfair text-secondary mb-6"
         >
           Our Premium Products
         </motion.h2>
@@ -63,7 +63,7 @@ export default function Products() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-dark/70 text-lg max-w-2xl mx-auto mb-16"
+          className="text-light/50 text-lg max-w-2xl mx-auto mb-16"
         >
           From Pakistan’s fertile farms to your tables — bringing nature’s
           richness, freshness, and purity with unmatched care.

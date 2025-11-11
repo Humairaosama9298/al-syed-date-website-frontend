@@ -2,12 +2,12 @@
 
 @theme {
   --color-primary: #8b5a3c;
-  --color-secondary: #d4a574;
+  --color-secondary: #BC9728;
   --color-dark: #3d2817;
-  --color-light: #a67c52;
+  --color-light: #D7B769;
   --color-text: #6b5444;
-  --color-bg: #fdfbf7;
-  --color-card: #fff;
+  --color-bg: #000000;
+  --color-card: #373737;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: #a67c52;

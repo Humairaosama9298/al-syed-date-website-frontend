@@ -24,24 +24,24 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 border-b border-b-light/30 backdrop-blur-sm shadow-sm z-50">
+    <nav className="fixed w-full bg-black/80 border-b border-b-light/30 backdrop-blur-sm shadow-sm z-50">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* ===== Logo Section ===== */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center justify-center w-10 h-10">
+            <div className="flex items-center justify-center w-12 h-12">
               <Image
                 src="/images/logo1.png"
                 alt="logo"
                 width={60}
                 height={60}
-                className="object-contain text-primary"
+                className="object-contain text-secondary"
                 priority
               />
             </div>
             <Link
               href="/"
-              className="font-semibold text-primary text-lg sm:text-xl leading-tight hover:text-secondary transition-colors"
+              className="font-semibold text-secondary text-lg sm:text-xl leading-tight hover:text-light/50 transition-colors"
             >
               Al&nbsp;Syed&nbsp;Brothers
             </Link>
@@ -66,7 +66,7 @@ export default function Navbar() {
 
           {/* ===== Mobile Menu Button ===== */}
           <motion.button
-            className="lg:hidden text-primary p-2 rounded-lg hover:text-secondary transition-colors"
+            className="lg:hidden text-secondary p-2 rounded-lg hover:text-secondary transition-colors"
             onClick={toggleMobileMenu}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
