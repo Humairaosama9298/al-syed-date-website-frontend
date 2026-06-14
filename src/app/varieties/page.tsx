@@ -69,7 +69,7 @@ export default function Varieties(): JSX.Element {
         {varieties.map((item: Variety, index: number) => (
           <motion.div
             key={index}
-            className="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:-translate-y-2"
+            className="bg-light/60 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden  transition-all duration-300 hover:-translate-y-2"
             variants={fadeInUp}
             {...cardHover}
           >
@@ -85,7 +85,7 @@ export default function Varieties(): JSX.Element {
 
             {/* 📝 Text */}
             <div className="p-6 sm:p-8 text-center">
-              <h3 className="text-xl sm:text-2xl font-serif text-primary mb-2">
+              <h3 className="text-xl sm:text-2xl font-serif text-accent mb-2">
                 {item.name}
               </h3>
               <p className="text-dark/70 text-sm sm:text-base leading-relaxed">

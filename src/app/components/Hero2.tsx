@@ -65,7 +65,7 @@ export default function HeroSection() {
             Thank you for connecting with us.
           </p>
 
-          <p className="text-sm sm:text-base mb-4 text-secondary font-semibold tracking-wide">
+          <p className="text-sm sm:text-base mb-4 text-bg font-semibold tracking-wide">
             <a
               href="https://www.alsyedbrothers.com"
               target="_blank"

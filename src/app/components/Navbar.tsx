@@ -24,7 +24,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full bg-black/80 border-b border-b-light/30 backdrop-blur-sm shadow-sm z-50">
+    <nav className="fixed w-full bg-bg border-b border-b-light/30 backdrop-blur-xl shadow-stone-500 z-50">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* ===== Logo Section ===== */}
@@ -41,22 +41,22 @@ export default function Navbar() {
             </div>
             <Link
               href="/"
-              className="font-semibold text-secondary text-lg sm:text-xl leading-tight hover:text-light/50 transition-colors"
+              className="font-semibold text-primary text-lg sm:text-xl leading-tight hover:text-secondary transition-colors"
             >
               Al&nbsp;Syed&nbsp;Brothers
             </Link>
           </div>
 
           {/* ===== Desktop Menu ===== */}
-          <div className="hidden lg:flex text-sm lg:text-base items-center space-x-4 lg:space-x-8">
+          <div className="hidden lg:flex text-sm lg:text-base text-primary items-center space-x-4 lg:space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`transition-colors ${
                   pathname === item.href
-  ? "text-primary font-semibold underline underline-offset-4 decoration-2 decoration-primary"
-  : "text-dark hover:text-primary hover:underline-offset-4"
+                    ? "text-primary font-semibold underline underline-offset-4 decoration-2"
+                    : "text-dark hover:text-secondary hover:underline-offset-4"
                 }`}
               >
                 {item.label}
@@ -102,7 +102,7 @@ export default function Navbar() {
                       href={item.href}
                       className={`block py-2 text-base transition-colors ${
                         pathname === item.href
-                          ? "text-primary font-medium"
+                          ? "text-primary font-semibold underline underline-offset-4 decoration-2"
                           : "text-dark hover:text-secondary"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}

@@ -33,12 +33,12 @@ export default function FromFarm() {
       style={{ backgroundImage: "url('/images/farm.jpg')" }}
     >
       {/* ===== Overlay ===== */}
-      <div className="absolute inset-0 bg-[#8b5a3c]/80 backdrop-blur-[2px]  "></div>
+      <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]  "></div>
 
       <div className="relative container z-10">
         {/* ===== Heading ===== */}
         <motion.h1
-          className="text-3xl md:text-4xl font-playfair text-white mb-4 drop-shadow-md"
+          className="drop-shadow-md text-3xl sm:text-4xl md:text-5xl font-serif text-accent text-center mb-12 leading-tight"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -46,7 +46,7 @@ export default function FromFarm() {
         </motion.h1>
 
         <motion.p
-          className="text-white/90 md:text-xl mb-16 max-w-3xl mx-auto drop-shadow-sm"
+          className="text-white md:text-xl mb-16 max-w-3xl mx-auto drop-shadow-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}

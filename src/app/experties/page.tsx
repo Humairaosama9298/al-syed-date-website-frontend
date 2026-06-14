@@ -14,7 +14,7 @@ export default function Experties() {
   ];
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-20 bg-secondary">
       <motion.div
         className="container max-w-7xl mx-auto px-6 text-center"
         variants={staggerContainer}
@@ -23,10 +23,10 @@ export default function Experties() {
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-3xl font-normal mb-14 text-center font-serif text-primary"
+          className="text-3xltext-3xl sm:text-4xl md:text-5xl  leading-tight font-normal mb-14 text-center font-serif text-accent"
           variants={fadeInUp}
         >
-          Our <span className="text-primary">Expertise</span>
+          Our <span className="text-accent">Expertise</span>
         </motion.h2>
 
         <motion.div
@@ -36,7 +36,7 @@ export default function Experties() {
           {stats.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition-shadow duration-300 w-[280px]"
+              className="bg-bg shadow-lg rounded-2xl p-8 hover:shadow-2xl transition-shadow duration-300 w-[280px]"
               variants={fadeInUp}
             >
               <div className="flex flex-col items-center text-center">

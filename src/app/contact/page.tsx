@@ -33,7 +33,7 @@ export default function Contact() {
 
   // ✅ Handle input changes
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -68,7 +68,7 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-playfair text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center mb-12 leading-tightfont-playfair text-primary">
             Get in Touch
           </h2>
           <p className="text-dark/70 text-lg max-w-2xl mx-auto">
@@ -87,11 +87,11 @@ export default function Contact() {
           >
             {/* 📞 Contact Info */}
             <div>
-              <h3 className="text-2xl font-playfair text-primary mb-6">
+              <h3 className="text-2xl md:text-4xl font-semibold font-playfair text-primary mb-16">
                 Contact Information
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-16">
                 {[
                   {
                     icon: <FaEnvelope className="text-primary text-xl" />,
@@ -138,7 +138,7 @@ export default function Contact() {
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-dark/80">{item.value}</p>
+                        <p className="text-primary hover:text-secondary">{item.value}</p>
                       )}
                     </div>
                   </motion.div>
@@ -146,53 +146,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* 🌐 Website */}
-            <div>
-              <h3 className="text-2xl font-playfair text-primary mb-4">
-                Visit Our Website
-              </h3>
-              <a
-                href="https://www.alsyedbrothers.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                www.alsyedbrother.com
-              </a>
-            </div>
-
-            {/* 👥 Social Links */}
-            <div>
-              <h3 className="text-2xl font-playfair text-primary mb-4">
-                Follow Us
-              </h3>
-              <div className="flex gap-4">
-                {[
-                  {
-                    icon: <FaGithub />,
-                    link: "https://github.com/yourusername",
-                  },
-                  {
-                    icon: <FaTwitter />,
-                    link: "https://twitter.com/yourusername",
-                  },
-                  {
-                    icon: <FaLinkedin />,
-                    link: "https://linkedin.com/in/yourusername",
-                  },
-                ].map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                  >
-                    {item.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           {/* ===== RIGHT SIDE (Form) ===== */}
@@ -200,9 +153,9 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-2xl shadow-lg p-8"
+            className="bg-secondary rounded-2xl shadow-lg p-8"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="text-black space-y-6">
               {[
                 { id: "name", label: "Name", type: "text" },
                 { id: "email", label: "Email", type: "email" },
@@ -211,7 +164,7 @@ export default function Contact() {
                 <div key={field.id}>
                   <label
                     htmlFor={field.id}
-                    className="block text-sm font-medium text-dark/90 mb-2"
+                    className="block text-sm font-medium mb-2"
                   >
                     {field.label}
                   </label>
@@ -223,7 +176,7 @@ export default function Contact() {
                     value={formData[field.id as keyof FormData]}
                     onChange={handleChange}
                     placeholder={`Your ${field.label.toLowerCase()}`}
-                    className="w-full px-4 py-2 rounded-md bg-secondary/20 focus:ring-2 focus:ring-secondary/80 outline-none"
+                    className="w-full px-4 py-2 rounded-md bg-bg focus:ring-2 focus:ring-secondary/80 outline-none"
                   />
                 </div>
               ))}
@@ -232,7 +185,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-dark/90 mb-2"
+                  className="block text-sm font-medium mb-2"
                 >
                   Message
                 </label>
@@ -244,7 +197,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your inquiry"
-                  className="w-full px-4 py-2 rounded-md bg-secondary/20 focus:ring-2 focus:ring-secondary/80 outline-none"
+                  className="w-full px-4 py-2 rounded-md bg-bg focus:ring-2 focus:ring-secondary/80 outline-none"
                 />
               </div>
 
@@ -271,8 +224,71 @@ export default function Contact() {
                 </p>
               )}
             </form>
+            
           </motion.div>
         </div>
+ {/* 🌐 Website & Social Links */}
+
+ {/* website */}
+        <motion.div
+  initial={{ opacity: 0, x: 30 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ delay: 0.3 }}
+>
+  <div className="pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-items-center">
+    
+    
+
+    {/* 👥 Social Links */}
+    <div className="flex flex-col">
+      <h3 className="text-2xl font-playfair text-primary text-center mb-4">
+        Follow Us
+      </h3>
+
+      <div className="flex gap-4">
+        {[
+          {
+            icon: <FaGithub />,
+            link: "https://github.com/yourusername",
+          },
+          {
+            icon: <FaTwitter />,
+            link: "https://twitter.com/yourusername",
+          },
+          {
+            icon: <FaLinkedin />,
+            link: "https://linkedin.com/in/yourusername",
+          },
+        ].map((item, i) => (
+          <a
+            key={i}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-bg hover:bg-secondary/30 hover:text-primary transition-all"
+          >
+            {item.icon}
+          </a>
+        ))}
+      </div>
+    </div>
+{/* 🌐 Website */}
+    <div className="flex flex-col">
+      <h3 className="text-2xl font-playfair text-primary text-center mb-4">
+        Visit Our Website
+      </h3>
+
+      <a
+        href="https://www.alsyedbrothers.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex w-fit items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+      >
+        www.alsyedbrothers.com
+      </a>
+    </div>
+  </div>
+</motion.div>
       </div>
     </section>
   );

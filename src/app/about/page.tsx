@@ -17,10 +17,10 @@ export default function About() {
     <div className="container max-w-7xl mx-auto py-16 md:py-28 px-4 lg:px-6">
       {/* ===== Page Heading ===== */}
       <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-serif text-secondary text-center mb-12 leading-tight"
+        className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary text-center mb-12 leading-tight"
         {...fadeInDown}
       >
-       <span className="text-secondary font-medium sm:text-5xl">Al-Syed Brothers</span>
+       <span className="text-primary font-medium sm:text-5xl">Al-Syed Brothers</span>
       </motion.h1>
 
       {/* ===== Company Overview ===== */}
@@ -42,14 +42,14 @@ export default function About() {
 
         {/* ✨ Text Section */}
         <div className="md:w-1/2 text-center md:text-left space-y-5">
-          <p className="text-base sm:text-lg text-light/60 leading-relaxed">
+          <p className="text-base sm:text-lg text-light leading-relaxed">
             <strong>Al-Syed Brothers</strong> is a leading exporter of
             <strong> premium quality dates</strong> from Pakistan’s finest
             date-producing regions. With decades of expertise in cultivation,
             processing, and global trade, we bring the natural sweetness and
             nutrition of Pakistani dates to tables around the world.
           </p>
-          <p className="text-base sm:text-lg text-light/60 leading-relaxed">
+          <p className="text-base sm:text-lg text-light leading-relaxed">
             Our focus on <strong>quality, sustainability,</strong> and
             <strong> fair trade</strong> ensures that every product reflects our
             commitment to excellence — from the farms to your home.
@@ -60,7 +60,7 @@ export default function About() {
       {/* ===== Core Values Section ===== */}
       <motion.section className="mb-24" {...fadeIn} transition={{ delay: 0.2 }}>
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-serif text-secondary text-center mb-12"
+          className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary text-center mb-12"
           {...fadeInUp}
         >
           Our Core Values
@@ -74,18 +74,18 @@ export default function About() {
         >
           {/* 🌱 Quality */}
           <motion.div
-            className="bg-card p-8 rounded-2xl shadow-lg text-center border border-gray hover:shadow-2xl transition-shadow duration-300"
+            className="border-8 border-secondary p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300"
             variants={fadeInUp}
             {...cardHover}
           >
             <FaSeedling
-              className="h-12 w-12 text-secondary mx-auto mb-8"
+              className="h-12 w-12 text-light mx-auto mb-8"
               aria-label="Quality Assurance Icon"
             />
             <h3 className="text-lg sm:text-xl font-semibold mb-6 text-brown-800">
               Quality Assurance
             </h3>
-            <p className="text-light/50">
+            <p className="text-light">
               From harvesting to packaging, every date is handled with utmost
               care to ensure the highest standards of freshness and taste.
             </p>
@@ -93,18 +93,18 @@ export default function About() {
 
           {/* 🌍 Global Export */}
           <motion.div
-            className="bg-card p-8 rounded-2xl shadow-lg text-center border border-gray hover:shadow-2xl transition-shadow duration-300"
+           className="border-8 border-secondary p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300"
             variants={fadeInUp}
             {...cardHover}
           >
             <FaGlobe
-              className="h-12 w-12 text-secondary mx-auto mb-10"
+              className="h-12 w-12 text-light mx-auto mb-10"
               aria-label="Global Presence Icon"
             />
             <h3 className="text-lg sm:text-xl font-semibold mb-8 text-brown-800">
               Global Presence
             </h3>
-            <p className="text-light/50">
+            <p className="text-light">
               Exporting to Asia, Europe, and the Middle East with consistent
               quality, reliability, and excellence.
             </p>
@@ -112,18 +112,18 @@ export default function About() {
 
           {/* 🤝 Integrity */}
           <motion.div
-            className="bg-card p-8 rounded-2xl shadow-lg text-center border border-gray hover:shadow-2xl transition-shadow duration-300"
+            className="border-8 border-secondary p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300"
             variants={fadeInUp}
             {...cardHover}
           >
             <FaHandshake
-              className="h-12 w-12 text-secondary mx-auto mb-8"
+              className="h-12 w-12 text-light mx-auto mb-8"
               aria-label="Commitment and Trust Icon"
             />
             <h3 className="text-lg sm:text-xl font-semibold mb-2 text-brown-800">
               Commitment & Trust
             </h3>
-            <p className="text-light/50">
+            <p className="text-light">
               We build lasting relationships based on integrity, transparency,
               and shared values of excellence.
             </p>
@@ -131,44 +131,44 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* ===== Experience & Heritage ===== */}
-      <motion.section className="mb-16" {...fadeIn} transition={{ delay: 0.4 }}>
-        <motion.div
-          className="max-w-4xl mx-auto space-y-8"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.div
-            className="bg-card p-8 text-center rounded-2xl shadow-lg border border-gray"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-brown-800">
-              Decades of Excellence
-            </h3>
-            <p className="text-light/50 leading-relaxed text-base sm:text-lg">
-              Founded by agricultural experts, Al-Syed Brothers has led
-              Pakistan’s date industry with traditional farming blended with
-              modern export standards for unparalleled quality.
-            </p>
-          </motion.div>
+     {/* ===== Experience & Heritage ===== */}
+<motion.section className="mb-16" {...fadeIn} transition={{ delay: 0.4 }}>
+  <motion.div
+    className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+    variants={staggerContainer}
+    initial="initial"
+    animate="animate"
+  >
+    <motion.div
+      className="w-full border-8 border-secondary p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300"
+      variants={fadeInUp}
+      {...cardHoverSmall}
+    >
+      <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-brown-800">
+        Decades of Excellence
+      </h3>
+      <p className="text-light leading-relaxed text-base sm:text-lg">
+        Founded by agricultural experts, Al-Syed Brothers has led Pakistan’s
+        date industry with traditional farming blended with modern export
+        standards for unparalleled quality.
+      </p>
+    </motion.div>
 
-          <motion.div
-            className="bg-card p-8 text-center rounded-2xl shadow-2xl border border-gray"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-brown-800">
-              Sustainable Farming
-            </h3>
-            <p className="text-light/50 leading-relaxed text-base sm:text-lg">
-              Sustainability drives every decision — from eco-friendly farming
-              to fair trade practices supporting local communities.
-            </p>
-          </motion.div>
-        </motion.div>
-      </motion.section>
-    </div>
-  )
+    <motion.div
+      className="w-full border-8 border-secondary p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300"
+      variants={fadeInUp}
+      {...cardHoverSmall}
+    >
+      <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-brown-800">
+        Sustainable Farming
+      </h3>
+      <p className="text-light leading-relaxed text-base sm:text-lg">
+        Sustainability drives every decision — from eco-friendly farming to
+        fair trade practices supporting local communities.
+      </p>
+    </motion.div>
+  </motion.div>
+</motion.section>
+  </div>
+)
 }
