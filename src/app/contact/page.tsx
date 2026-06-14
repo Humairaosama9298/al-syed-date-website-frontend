@@ -21,6 +21,24 @@ interface FormData {
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
+const countries = [
+  { code: "PK", name: "Pakistan" },
+  { code: "SA", name: "Saudi Arabia" },
+  { code: "AE", name: "United Arab Emirates" },
+  { code: "QA", name: "Qatar" },
+  { code: "KW", name: "Kuwait" },
+  { code: "OM", name: "Oman" },
+  { code: "BH", name: "Bahrain" },
+  { code: "US", name: "United States" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "CA", name: "Canada" },
+];
+
+const getFlagEmoji = (countryCode: string) =>
+  countryCode
+    .toUpperCase()
+    .replace(/./g, (char) => String.fromCodePoint(127397 + char.charCodeAt(0)));
+
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -138,14 +156,15 @@ export default function Contact() {
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-primary hover:text-secondary">{item.value}</p>
+                        <p className="text-primary hover:text-secondary">
+                          {item.value}
+                        </p>
                       )}
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
-
           </motion.div>
 
           {/* ===== RIGHT SIDE (Form) ===== */}
@@ -159,7 +178,6 @@ export default function Contact() {
               {[
                 { id: "name", label: "Name", type: "text" },
                 { id: "email", label: "Email", type: "email" },
-                { id: "country", label: "Country", type: "text" },
               ].map((field) => (
                 <div key={field.id}>
                   <label
@@ -180,7 +198,36 @@ export default function Contact() {
                   />
                 </div>
               ))}
+              <div>
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Country
+                </label>
 
+                <select
+                  id="country"
+                  name="country"
+                  required
+                  value={formData.country}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      country: e.target.value,
+                    }))
+                  }
+                  className="w-full px-4 py-2 rounded-md bg-bg focus:ring-2 focus:ring-secondary/80 outline-none"
+                >
+                  <option value="">Select Country</option>
+
+                  {countries.map((country) => (
+                    <option key={country.code} value={country.name}>
+                      {getFlagEmoji(country.code)} {country.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
               {/* Message Field */}
               <div>
                 <label
@@ -224,71 +271,67 @@ export default function Contact() {
                 </p>
               )}
             </form>
-            
           </motion.div>
         </div>
- {/* 🌐 Website & Social Links */}
+        {/* 🌐 Website & Social Links */}
 
- {/* website */}
+        {/* website */}
         <motion.div
-  initial={{ opacity: 0, x: 30 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ delay: 0.3 }}
->
-  <div className="pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-items-center">
-    
-    
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className="pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-items-center">
+            {/* 👥 Social Links */}
+            <div className="flex flex-col">
+              <h3 className="text-2xl font-playfair text-primary text-center mb-4">
+                Follow Us
+              </h3>
 
-    {/* 👥 Social Links */}
-    <div className="flex flex-col">
-      <h3 className="text-2xl font-playfair text-primary text-center mb-4">
-        Follow Us
-      </h3>
+              <div className="flex gap-4">
+                {[
+                  {
+                    icon: <FaGithub />,
+                    link: "https://github.com/yourusername",
+                  },
+                  {
+                    icon: <FaTwitter />,
+                    link: "https://twitter.com/yourusername",
+                  },
+                  {
+                    icon: <FaLinkedin />,
+                    link: "https://linkedin.com/in/yourusername",
+                  },
+                ].map((item, i) => (
+                  <a
+                    key={i}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-bg hover:bg-secondary/30 hover:text-primary transition-all"
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+            {/* 🌐 Website */}
+            <div className="flex flex-col">
+              <h3 className="text-2xl font-playfair text-primary text-center mb-4">
+                Visit Our Website
+              </h3>
 
-      <div className="flex gap-4">
-        {[
-          {
-            icon: <FaGithub />,
-            link: "https://github.com/yourusername",
-          },
-          {
-            icon: <FaTwitter />,
-            link: "https://twitter.com/yourusername",
-          },
-          {
-            icon: <FaLinkedin />,
-            link: "https://linkedin.com/in/yourusername",
-          },
-        ].map((item, i) => (
-          <a
-            key={i}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-bg hover:bg-secondary/30 hover:text-primary transition-all"
-          >
-            {item.icon}
-          </a>
-        ))}
-      </div>
-    </div>
-{/* 🌐 Website */}
-    <div className="flex flex-col">
-      <h3 className="text-2xl font-playfair text-primary text-center mb-4">
-        Visit Our Website
-      </h3>
-
-      <a
-        href="https://www.alsyedbrothers.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex w-fit items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
-      >
-        www.alsyedbrothers.com
-      </a>
-    </div>
-  </div>
-</motion.div>
+              <a
+                href="https://www.alsyedbrothers.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                www.alsyedbrothers.com
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

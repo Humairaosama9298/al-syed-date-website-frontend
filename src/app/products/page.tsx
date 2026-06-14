@@ -71,9 +71,9 @@ export default function Products() {
 
         {/* ====== Product Cards Grid ====== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
-          {products.map((product, index) => (
+          {products.map((product,index) => (
             <motion.div
-              key={index}
+              key={product.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
@@ -85,6 +85,7 @@ export default function Products() {
                   src={product.image}
                   alt={product.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
