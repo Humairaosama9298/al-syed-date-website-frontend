@@ -15,7 +15,7 @@ export default function Products() {
       id: "01",
       title: "Pakistani Dates",
       icon: <FaLeaf className="text-3xl text-primary" />,
-      image: "/images/pakistani-date.jpg",
+      image: "/images/pakistani date.jpg",
       features: [
         "Best quality of Pakistani Dates",
         "Sweet, healthy & ready to serve",
@@ -33,10 +33,7 @@ export default function Products() {
       title: "Roasted Black Chickpeas",
       icon: <FaCookieBite className="text-3xl text-primary" />,
       image: "/images/chickpea1.jpg",
-      features: [
-        "Nutrient-rich and low in calories",
-        "Supports bone strength",
-      ],
+      features: ["Nutrient-rich and low in calories", "Supports bone strength"],
     },
     {
       id: "04",
@@ -71,7 +68,7 @@ export default function Products() {
 
         {/* ====== Product Cards Grid ====== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
-          {products.map((product,index) => (
+          {products.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
@@ -80,16 +77,16 @@ export default function Products() {
               className="group bg-bg rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-all overflow-hidden text-left backdrop-blur-sm"
             >
               {/* Product Image */}
-              <div className="relative w-full h-56 md:h-48 overflow-hidden ">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center"
                 />
               </div>
-
               {/* Product Content */}
               <div className="p-6 ">
                 <div className="flex items-center gap-3 mb-3">
